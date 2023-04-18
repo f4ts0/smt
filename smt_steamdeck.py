@@ -1,6 +1,8 @@
 import os
 import sys
 
+#input validation
+
 while True:
     smt_val = input("Please select SMT on or off': ")
     if smt_val == 'on':
@@ -12,7 +14,6 @@ while True:
 
 print("SMT config selected:", smt_val)
 
-#EXEC LINUX COMMANDS FROM PYTHON
-command = f'echo {smt_val} > igort'
-      #command = 'echo %s > igort'.format(val)
+#exec command in python 
+command = f'echo {smt_val} > /sys/devices/system/cpu/smt/control'
 os.popen(command,'r',1)
